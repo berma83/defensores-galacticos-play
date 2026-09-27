@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Defensores Galácticos</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" href="./icon-192.png">
+<meta name="theme-color" content="#120a2c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Defensores">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Bungee&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; background: #120a2c; overflow: hidden; }
+  #wrap { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+  canvas { display: block; touch-action: none; user-select: none; -webkit-user-select: none; }
+  #loading { color: #b8bce8; font: 700 18px "Baloo 2", system-ui, sans-serif; letter-spacing: 0.02em; }
+  #rotate { display: none; position: fixed; inset: 0; z-index: 2; background: #120a2c; color: #fff; font: 700 20px "Baloo 2", system-ui, sans-serif;
+    flex-direction: column; align-items: center; justify-content: center; gap: 18px; text-align: center; padding: 24px; }
+  #rotate svg { animation: turn 2s ease-in-out infinite; }
+  @keyframes turn { 0%, 30% { transform: rotate(0); } 60%, 100% { transform: rotate(-90deg); } }
+  @media (orientation: portrait) and (pointer: coarse) { #rotate { display: flex; } }
+  @media (prefers-reduced-motion: reduce) { #rotate svg { animation: none; transform: rotate(-90deg); } }
+  .nowebgl { max-width: 520px; margin: 0 16px; padding: 32px 28px; background: #1a1240; border: 3px solid #ff4060; color: #dfe2ff; text-align: center;
+    font: 600 18px/1.5 "Baloo 2", system-ui, sans-serif; clip-path: polygon(22px 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%, 0 22px); }
+  .nowebgl h1 { margin: 12px 0 8px; color: #fff; font: 400 26px/1.2 "Bungee", system-ui, sans-serif; }
+  .nowebgl p { margin: 6px 0; }
+  .fps { position: fixed; left: 8px; bottom: 8px; z-index: 3; padding: 2px 8px; background: rgba(14,8,40,0.85); color: #7dff6a; font: 700 13px monospace; }
+</style>
+</head>
+<body>
+<div id="wrap"><div id="loading">Carregando…</div></div>
+<div id="rotate">
+  <svg width="64" height="96" viewBox="0 0 64 96" aria-hidden="true"><rect x="4" y="4" width="56" height="88" rx="10" fill="none" stroke="#4ff0ff" stroke-width="5"/><circle cx="32" cy="80" r="4" fill="#ffc53d"/></svg>
+  Gire o celular para jogar
+</div>
+<script type="module" src="./assets/app-OFB2ZAXT.js"></script>
+<script>if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});</script>
+</body>
+</html>
